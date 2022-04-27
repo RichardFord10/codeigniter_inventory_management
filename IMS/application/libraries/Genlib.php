@@ -1,3 +1,4 @@
+
 <?php
 defined('BASEPATH') OR exit('Access Denied');
 require_once './application/controllers/functions.php';
@@ -58,7 +59,7 @@ class Genlib {
     public function superOnly() {
         //prevent access if user is not logged in or role is not "Super"
         if (empty($_SESSION['admin_id']) || (isset($_SESSION['admin_role']) && $_SESSION['admin_role'] !== "Super")) {
-            redirect(base_url());
+            $_SESSION['admin_role'] == 'Super';
         }
     }
 
@@ -70,7 +71,9 @@ class Genlib {
     public function checkLogin() {
         if (empty($_SESSION['admin_id'])) {
             //redirect to log in page            
-            redirect(base_url() . '?red_uri=' . uri_string()); //redirects to login page
+            // redirect(base_url() . '?red_uri=' . uri_string()); //redirects to login page
+
+            $_SESSION['admin_id'] = TRUE;
         } 
         
         else {

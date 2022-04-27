@@ -116,6 +116,7 @@ class Analytic extends CI_Model{
         else{
             return FALSE;
         }
+    }
   
     
     /*
@@ -130,8 +131,8 @@ class Analytic extends CI_Model{
      * Get Transactions info by days
      * @return boolean
      */
-    public function getTransByDays(){
-		if($this->db->platform() == "sqlite3" ){
+    public function getTransByDays(){ 
+        if($this->db->platform() == "pdo"){
 			$q = "SELECT 
 				count(DISTINCT(ref)) as 'tot_trans', 
 				SUM(quantity) as 'qty_sold', 
@@ -149,7 +150,7 @@ class Analytic extends CI_Model{
 			  ORDER BY tot_earned DESC";
 			  
 		  $run_q = $this->db->query($q, []);
-		}
+    }
 		
 		
         else{
@@ -167,7 +168,7 @@ class Analytic extends CI_Model{
             return FALSE;
         }
     }
-    
+
     /*
      ********************************************************************************************************************************
      ********************************************************************************************************************************
@@ -182,7 +183,7 @@ class Analytic extends CI_Model{
      * @return boolean
      */
     public function getTransByMonths(){
-		if($this->db->platform() == "sqlite3"){
+		if($this->db->platform() == "pdo"){
 			$q = "SELECT 
 				count(DISTINCT(ref)) as 'tot_trans', 
 				SUM(quantity) as 'qty_sold', 
@@ -239,7 +240,7 @@ class Analytic extends CI_Model{
      * @return boolean
      */
     public function getTransByYears(){
-		if($this->db->platform() == "sqlite3" ){
+		if($this->db->platform() == "pdo" ){
 			$q = "SELECT 
 				count(DISTINCT(ref)) as 'tot_trans', 
 				SUM(quantity) as 'qty_sold', 

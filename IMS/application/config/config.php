@@ -27,17 +27,17 @@ $host = $_SERVER['HTTP_HOST'];//e.g practa.ng || www.practa.ng || localhost
 $protocol = is_https() ? "https://" : "http://";
         
 if(is_cli()){
-    $config['base_url'] = "";
+    $config['base_url'] = "IMS";
 }
 
 else if(stristr($host, "localhost") !== FALSE || (stristr($host, "192.168.") !== FALSE)|| (stristr($host, "127.0.0.") !== FALSE)){
-    $config['base_url'] =  $protocol.$host."/IMS/";
+    $config['base_url'] =  $protocol.$host."IMS";
 }
 
 else{
     $allowed = ['www.1410inc.xyz', '1410inc.xyz'];//input all allowed urls here e.g. amirsanni.com, www.practa.ng, smartagapp.com
 
-    $config['base_url'] = in_array($host, $allowed) ? $protocol.$host."/IMS/" : "http://".$_SERVER['HTTP_HOST']."/";
+    $config['base_url'] = in_array($host, $allowed) ? $protocol.$host."IMS/" : "http://".$_SERVER['HTTP_HOST']."/";
 }
 
 /*

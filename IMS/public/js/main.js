@@ -1,13 +1,13 @@
 'use strict';
 
-var appRoot = setAppRoot("IMS/index.php/", "IMS/index.php/");
+var appRoot = setAppRoot("IMS", "IMS");
 var spinnerClass = 'fa fa-spinner faa-spin animated';
 
 $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip();
     
     //get total amount earned on current day(on page load)
-    totalEarnedToday();
+    // totalEarnedToday();
     
     
     //to view transaction receipt
@@ -50,7 +50,7 @@ $(document).ready(function(){
     
     //WHEN THE SUBMIT BUTTON ON THE LOG IN MODAL IS CLICKED
     $("#loginModalSubmit").click(function(e){
-        e.preventDefault();
+        // e.preventDefault();
         
         var email = $("#logInModalEmail").val();
         var password = $("#logInModalPassword").val();

@@ -70,12 +70,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | The $query_builder variables lets you determine whether or not to load
 | the query builder class.
 */
-$active_group = 'mysql';
+$active_group = 'postgresql';
 $query_builder = TRUE;
 
 //details for mysql
 $db['mysql'] = array(
-	'dsn'	=> 'mysql:hostname=localhost; dbname=1410inventory',
+	'dsn'	=> 'mysql:hostname=localhost; dbname=postgres',
 	'hostname' => '',
 	'username' => 'root',
 	'password' => '',
@@ -105,6 +105,28 @@ $db['sqlite'] = array(
 	'password' => '',
 	'database' => BASEPATH . 'sqlite/1410inventory.sqlite',
 	'dbdriver' => 'sqlite3',
+	'dbprefix' => '',
+	'pconnect' => FALSE,
+	'db_debug' => (ENVIRONMENT !== 'production'),
+	'cache_on' => FALSE,
+	'cachedir' => '',
+	'char_set' => 'utf8',
+	'dbcollat' => 'utf8_general_ci',
+	'swap_pre' => '',
+	'encrypt' => FALSE,
+	'compress' => FALSE,
+	'stricton' => FALSE,
+	'failover' => array(),
+	'save_queries' => TRUE
+);
+//details for postgresql
+$db['postgresql'] = array(
+	'dsn'	=> 'pgsql:host=localhost; port=5432;',
+	'hostname' => '',
+	'username' => '',
+	'password' => '',
+	'database' => '',
+	'dbdriver' => 'pdo',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
 	'db_debug' => (ENVIRONMENT !== 'production'),

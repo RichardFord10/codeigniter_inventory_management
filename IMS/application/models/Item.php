@@ -55,7 +55,7 @@ class Item extends CI_Model{
         $data = ['name'=>$itemName, 'quantity'=>$itemQuantity, 'unitPrice'=>$itemPrice, 'description'=>$itemDescription, 'code'=>$itemCode];
                 
         //set the datetime based on the db driver in use
-        $this->db->platform() == "sqlite3" 
+        $this->db->platform() == "pdo" 
                 ? 
         $this->db->set('dateAdded', "datetime('now')", FALSE) 
                 : 

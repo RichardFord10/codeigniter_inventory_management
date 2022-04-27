@@ -31,7 +31,7 @@ class Transaction extends CI_Model {
      * @return boolean
      */
     public function getAll($orderBy, $orderFormat, $start, $limit) {
-        if ($this->db->platform() == "sqlite3") {
+        if ($this->db->platform() == "pdo") {
             $q = "SELECT transactions.ref, transactions.totalMoneySpent, transactions.modeOfPayment, transactions.staffId,
                 transactions.transDate, transactions.lastUpdated, transactions.amountTendered, transactions.changeDue,
                 admin.first_name || ' ' || admin.last_name AS 'staffName', SUM(transactions.quantity) AS 'quantity',
@@ -107,7 +107,7 @@ class Transaction extends CI_Model {
             'cust_email'=>$ce];
 
         //set the datetime based on the db driver in use
-        $this->db->platform() == "sqlite3" ?
+        $this->db->platform() == "pdo" ?
             $this->db->set('transDate', "datetime('now')", FALSE) :
             $this->db->set('transDate', "NOW()", FALSE);
 
@@ -294,7 +294,7 @@ class Transaction extends CI_Model {
      */
     
     public function getDateRange($from_date, $to_date){
-        if ($this->db->platform() == "sqlite3") {
+        if ($this->db->platform() == "pdo") {
             $q = "SELECT transactions.ref, transactions.totalMoneySpent, transactions.modeOfPayment, transactions.staffId,
                 transactions.transDate, transactions.lastUpdated, transactions.amountTendered, transactions.changeDue,
                 admin.first_name || ' ' || admin.last_name AS 'staffName', SUM(transactions.quantity) AS 'quantity',

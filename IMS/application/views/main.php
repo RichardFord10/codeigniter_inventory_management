@@ -1,27 +1,25 @@
 <?php
-defined('BASEPATH') OR exit('');
-?>
-
+defined('BASEPATH') OR exit('No direct script access allowed');?>
 <!DOCTYPE HTML>
 <html>
     <head>
         <title><?= $pageTitle ?></title>
 		
         <!-- Favicon -->
-        <link rel="shortcut icon" href="public/images/icon.ico">
+        <link rel="shortcut icon" href="../../public/images/icon.ico">
         <!-- favicon ends -->
         
         <!-- LOAD FILES -->
         <?php if((stristr($_SERVER['HTTP_HOST'], "localhost") !== FALSE) || (stristr($_SERVER['HTTP_HOST'], "192.168.") !== FALSE)|| (stristr($_SERVER['HTTP_HOST'], "127.0.0.") !== FALSE)): ?>
-        <link rel="stylesheet" href="../public/bootstrap/css/bootstrap.min.css">
-        <link rel="stylesheet" href="../public/bootstrap/css/bootstrap-theme.min.css" media="screen">
-        <link rel="stylesheet" href="../public/font-awesome/css/font-awesome.min.css">
-        <link rel="stylesheet" href="../public/font-awesome/css/font-awesome-animation.min.css">
-        <link rel="stylesheet" href="../public/ext/select2/select2.min.css">
+        <link rel="stylesheet" href="../../public/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../../public/bootstrap/css/bootstrap-theme.min.css" media="screen">
+        <link rel="stylesheet" href="../../public/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="../../public/font-awesome/css/font-awesome-animation.min.css">
+        <link rel="stylesheet" href="../../public/ext/select2/select2.min.css">
 
-        <script src="../public/js/jquery.min.js"></script>
-        <script src="../public/bootstrap/js/bootstrap.min.js"></script>
-        <script src="../public/ext/select2/select2.min.js"></script>
+        <script src="../../public/js/jquery.min.js"></script>
+        <script src="../../public/bootstrap/js/bootstrap.min.js"></script>
+        <script src="../../public/ext/select2/select2.min.js"></script>
 
         <?php else: ?>
         
@@ -38,10 +36,10 @@ defined('BASEPATH') OR exit('');
         <?php endif; ?>
         
         <!-- custom CSS -->
-        <link rel="stylesheet" href="../public/css/main.css">
+        <link rel="stylesheet" href="../../public/css/main.css">
 
         <!-- custom JS -->
-        <script src="../public/js/main.js"></script>
+        <script src="../../public/js/main.js"></script>
     </head>
 
     <body>
@@ -56,7 +54,7 @@ defined('BASEPATH') OR exit('');
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" href="" style="margin-top:-15px">
-                        <img src="../public/images/logo_black.png" alt="logo" class="img-responsive" width="73px">
+                        <img src="../../public/images/logo_black.png" alt="logo" class="img-responsive" width="73px">
                     </a>
                 </div>
 
@@ -222,7 +220,6 @@ defined('BASEPATH') OR exit('');
 
                 <!-- Main content -->
                 <div class="col-sm-10">
-                    <?= isset($pageContent) ? $pageContent : "" ?>
                 </div>
                 <!-- Main content ends -->
             </div>
@@ -230,8 +227,18 @@ defined('BASEPATH') OR exit('');
 
         <footer class="container-fluid text-center hidden-print">
             <p>
-                <i class="fa fa-copyright"></i>
-                Copyright <a href="http://www.amirsanni.com">Amir Sanni</a> (2016)
+                <a href="http://www.facebook.com/pages/Blessing-Nigeria/102029087440183" target="_blank">
+                    <i class="fa fa-facebook-square fa-2x"></i>
+                </a>
+                <a href="http://twitter.com/blessingnigeria" target="_blank">
+                    <i class="fa fa-twitter-square fa-2x"></i>
+                </a>
+                <a href="http://www.youtube.com/user/blessingnigeria" target="_blank">
+                    <i class="fa fa-youtube-square fa-2x"></i>
+                </a>
+                <a href="http://www.instagram.com/blessingnigeria" target="_blank">
+                    <i class="fa fa-instagram fa-2x"></i>
+                </a>
             </p>
         </footer>
 
@@ -289,9 +296,9 @@ defined('BASEPATH') OR exit('');
                             </div>
                             
                             <div class="row">
-                                <!--<div class="col-sm-6 pull-left">
+                                <div class="col-sm-6 pull-left">
                                     <input type="checkbox" class="control-label" id='remMe'> Remember me
-                                </div>-->
+                                </div>
                                 <div class="col-sm-4"></div>
                                 <div class="col-sm-2 pull-right">
                                     <button id='loginModalSubmit' class="btn btn-primary">Log in</button>

@@ -36,7 +36,7 @@ class Admin extends CI_Model{
             'mobile1'=>$mobile1, 'mobile2'=>$mobile2];
         
         //set the datetime based on the db driver in use
-        $this->db->platform() == "sqlite3" 
+        $this->db->platform() == "pdo" 
                 ? 
         $this->db->set('created_on', "datetime('now')", FALSE) 
                 : 
@@ -70,7 +70,7 @@ class Admin extends CI_Model{
         $this->db->where('id', $admin_id);
         
         //set the datetime based on the db driver in use
-        $this->db->platform() == "sqlite3" 
+        $this->db->platform() == "pdo" 
                 ? 
         $this->db->set('last_login', "datetime('now')", FALSE) 
                 : 

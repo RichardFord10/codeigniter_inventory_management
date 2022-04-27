@@ -34,20 +34,21 @@ class Misc extends CI_Controller{
      * check if admin's session is still on
      */
     public function check_session_status(){
-        if(isset($_SESSION['admin_id']) && ($_SESSION['admin_id'] !== false) && ($_SESSION['admin_id'] !== "")){
+        if(isset($_SESSION['admin_id']) && ($_SESSION['admin_id'] !== false) && ($_SESSION['admin_id'] !== ""))
+        {
             $json['status'] = 1;
-            
             //update user's last seen time
             //update_last_seen_time($id, $table_name)
-            $this->genmod->update_last_seen_time($_SESSION['admin_id'], 'admin');
+            // $this->genmod->update_last_seen_time($_SESSION['admin_id'], 'admin');
         }
-        
         else{
             $json['status'] = 0;
-        }
+        
         
         $this->output->set_content_type('application/json')->set_output(json_encode($json));
+        }
     }
+    
     
     
     
@@ -68,7 +69,7 @@ class Misc extends CI_Controller{
         
         $this->genlib->superOnly();
         
-        $file_path = BASEPATH . "sqlite/1410inventory.sqlite";//link to db file
+        $file_path = BASEPATH . "1410inventory.sql";//link to db file
         
         $this->output->set_content_type('')->set_output(file_get_contents($file_path));
     }
@@ -85,14 +86,14 @@ class Misc extends CI_Controller{
         $this->genlib->superOnly();
         
         //create a copy of the db file currently in the sqlite dir for keep in case something go wrong
-        if(file_exists(BASEPATH."sqlite/1410inventory.sqlite")){
-            copy(BASEPATH."sqlite/1410inventory.sqlite", BASEPATH."sqlite/backups/".time().".sqlite");
+        if(file_exists(BASEPATH."1410inventory.sql")){
+            copy(BASEPATH."1410inventory.sql", BASEPATH."sql/backups/".time().".sql");
         }
         
-        $config['upload_path'] = BASEPATH . "sqlite/";//db files are stored in the basepath
-        $config['allowed_types'] = 'sqlite';
+        $config['upload_path'] = BASEPATH . "pdo/";//db files are stored in the basepath
+        $config['allowed_types'] = 'pdo';
         $config['file_ext_tolower'] = TRUE;
-        $config['file_name'] = "1410inventory.sqlite";
+        $config['file_name'] = "1410inventory.sql";
         $config['max_size'] = 2000;//in kb
         $config['overwrite'] = TRUE;//overwrite the previous file
 

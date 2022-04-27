@@ -1,11 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-/**
- * Description of Genmod
- *
- * @author Amir <amirsanni@gmail.com>
- */
+//General DB Module
 class Genmod extends CI_Model{
     
     public function __construct() {
@@ -152,14 +148,12 @@ class Genmod extends CI_Model{
     */
    public function update_last_seen_time($id, $table_name){
         //set the datetime based on the db driver in use
-        $this->db->platform() == "sqlite3" 
+        $this->db->platform() == "pdo" 
                 ? 
         $this->db->set('last_seen', "datetime('now')", FALSE) 
                 : 
         $this->db->set('last_seen', "NOW()", FALSE);
-        
         $this->db->where('id', $id);
-
         $this->db->update($table_name);
 
         if($this->db->affected_rows()){
@@ -188,7 +182,7 @@ class Genmod extends CI_Model{
     public function getYearEarnings($year=""){
         $year_to_fetch = $year ? $year : date('Y');
 		
-        if($this->db->platform() == "sqlite3"){
+        if($this->db->platform() == "pdo"){
 			$q = "SELECT transDate, totalPrice FROM transactions WHERE strftime('%Y', transDate) = '{$year_to_fetch}'";
 			
 			$run_q = $this->db->query($q);
@@ -225,7 +219,7 @@ class Genmod extends CI_Model{
      * @return boolean
      */
     public function getPaymentMethods($year){
-		if($this->db->platform() == "sqlite3"){
+		if($this->db->platform() == "pdo"){
 			$q = "SELECT modeOfPayment FROM transactions WHERE strftime('%Y', transDate) GROUP BY ref";
 			
 			$run_q = $this->db->query($q);
