@@ -7,5 +7,5 @@ IMS/postgres/postmaster.opts
 IMS/postgres/postmaster.pid
 IMS/postgres/*
 IMS/system/*
-IMS/application/logs/log-2022-04-27.php
-IMS/application/logs/log-2022-04-27.php
+IMS/application/logs/*
+
